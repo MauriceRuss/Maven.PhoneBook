@@ -16,7 +16,7 @@ public class ConstructorTest {
         PhoneBook phoneBook = new PhoneBook();
 
         // then
-        Assert.assertTrue(phoneBook.getMap() instanceof HashMap);
+        Assert.assertTrue(phoneBook.getPhoneBook() instanceof HashMap);
     }
 
     @Test
@@ -28,6 +28,6 @@ public class ConstructorTest {
         PhoneBook phoneBook = new PhoneBook(dependency);
 
         // then
-        Assert.assertEquals(dependency, phoneBook.getMap());
+        Assert.assertEquals(dependency, phoneBook.getPhoneBook());
     }
 }

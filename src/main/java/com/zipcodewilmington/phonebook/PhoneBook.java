@@ -1,9 +1,6 @@
 package com.zipcodewilmington.phonebook;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by leon on 1/23/18.
@@ -11,37 +8,45 @@ import java.util.Map;
 public class PhoneBook  {
     private String name;
     private String phoneNumber;
-    private String phoneNumbers;
-    private Map phoneBook = new HashMap();
+    private String[] phoneNumbers;
+    //giving field of a map for getter method for constructor test
+    private Map<String, List<String>> phoneBook;
 
 
-
+    //making the map in parameter the named map in field
     public PhoneBook(Map<String, List<String>> map) {
-        Map phoneBook = this.phoneBook;
+        this.phoneBook = map;
     }
-
+    //changing to TreeMp for sorting issue to happen latter
     public PhoneBook() {
-        this(null);
+        this.phoneBook = new TreeMap<>();
     }
 
     public void add(String name, String phoneNumber) {
-        phoneBook.put(this.name,this.phoneNumber);
-
+        ArrayList<String> actualPhoneNumbers = new ArrayList();
+        actualPhoneNumbers.add(phoneNumber);
+        this.phoneBook.put(name, actualPhoneNumbers);
     }
-
+         
     public void addAll(String name, String... phoneNumbers) {
-        phoneBook.put(this.name, this.phoneNumbers);
+        ArrayList<String> actualPhoneNumbers = new ArrayList();
+        for(String num : phoneNumbers){
+            actualPhoneNumbers.add(num);
+        }
+        this.phoneBook.put(name, actualPhoneNumbers);
     }
 
     public void remove(String name) {
     }
 
     public Boolean hasEntry(String name) {
+        for(int i = 0; i)
+        if()
         return null;
     }
 
     public List<String> lookup(String name) {
-        return null;
+        return this.phoneBook.get(name);
     }
 
     public String reverseLookup(String phoneNumber)  {
@@ -52,7 +57,7 @@ public class PhoneBook  {
         return null;
     }
 
-    public Map<String, List<String>> getMap() {
+    public Map<String, List<String>> getPhoneBook() {
 
         return phoneBook;
     }
