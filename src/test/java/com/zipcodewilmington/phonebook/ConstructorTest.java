@@ -11,6 +11,7 @@ public class ConstructorTest {
     @Test
     public void testNullaryConstructor() {
         // given
+
         // when
         PhoneBook phoneBook = new PhoneBook();
 
