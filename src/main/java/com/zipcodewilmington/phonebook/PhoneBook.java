@@ -17,9 +17,9 @@ public class PhoneBook  {
     public PhoneBook(Map<String, List<String>> map) {
         this.phoneBook = map;
     }
-    //changing to TreeMp for sorting issue to happen latter
+    //changing to LinkedHashMap for sorting issue to happen latter
     public PhoneBook() {
-        this.phoneBook = new TreeMap<>();
+        this.phoneBook = new LinkedHashMap<>();
     }
 
     public void add(String name, String phoneNumber) {
@@ -40,11 +40,15 @@ public class PhoneBook  {
     }
 
     public Boolean hasEntry(String name) {
-        for(int i = 0; i)
-        if()
-        return null;
+        Set<String> keys = phoneBook.keySet();
+        for(String k : keys){
+           if(k.isEmpty()){
+               return true;
+           }
+        }
+         return false;
     }
-
+     //Needed for addAll test BE SURE TO LOOK AT TEST CAREFULLY
     public List<String> lookup(String name) {
         return this.phoneBook.get(name);
     }
@@ -54,7 +58,9 @@ public class PhoneBook  {
     }
 
     public List<String> getAllContactNames() {
-        return null;
+        ArrayList<String> contactNames = new ArrayList<String>(phoneBook.keySet());
+        
+        return contactNames;
     }
 
     public Map<String, List<String>> getPhoneBook() {
