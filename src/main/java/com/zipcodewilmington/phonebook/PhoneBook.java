@@ -23,13 +23,13 @@ public class PhoneBook  {
     }
 
     public void add(String name, String phoneNumber) {
-        ArrayList<String> actualPhoneNumbers = new ArrayList();
+        ArrayList<String> actualPhoneNumbers = new ArrayList<>();
         actualPhoneNumbers.add(phoneNumber);
         this.phoneBook.put(name, actualPhoneNumbers);
     }
          
     public void addAll(String name, String... phoneNumbers) {
-        ArrayList<String> actualPhoneNumbers = new ArrayList();
+        ArrayList<String> actualPhoneNumbers = new ArrayList<>();
         for(String num : phoneNumbers){
             actualPhoneNumbers.add(num);
         }
@@ -41,8 +41,8 @@ public class PhoneBook  {
     }
 
     public Boolean hasEntry(String name) {
-           if(phoneBook.containsKey(name) || phoneBook.containsValue(phoneNumber)){
-               return true;
+           if(this.phoneBook.containsKey(name) || this.phoneBook.containsValue(this.phoneNumber)){
+              return true;
            }
          return false;
     }
@@ -50,14 +50,14 @@ public class PhoneBook  {
     public List<String> lookup(String name) {
         return this.phoneBook.get(name);
     }
-
+     //For each loop iterator Map.Entry
     public String reverseLookup(String phoneNumber)  {
         for(Map.Entry<String,List<String>> entry : phoneBook.entrySet()){
             if(entry.getValue().contains(phoneNumber)) {
                 return entry.getKey();
             }
         }
-        return null;
+         return null;
     }
 
     public List<String> getAllContactNames() {
