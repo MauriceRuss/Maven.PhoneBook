@@ -37,15 +37,13 @@ public class PhoneBook  {
     }
 
     public void remove(String name) {
+       this.phoneBook.remove(name);
     }
 
     public Boolean hasEntry(String name) {
-        Set<String> keys = phoneBook.keySet();
-        for(String k : keys){
-           if(k.isEmpty()){
+           if(phoneBook.containsKey(name) || phoneBook.containsValue(phoneNumber)){
                return true;
            }
-        }
          return false;
     }
      //Needed for addAll test BE SURE TO LOOK AT TEST CAREFULLY
@@ -54,6 +52,11 @@ public class PhoneBook  {
     }
 
     public String reverseLookup(String phoneNumber)  {
+        for(Map.Entry<String,List<String>> entry : phoneBook.entrySet()){
+            if(entry.getValue().contains(phoneNumber)) {
+                return entry.getKey();
+            }
+        }
         return null;
     }
 
